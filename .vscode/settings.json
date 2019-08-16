@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        ".vscode{,/**}"
+    ],
+    "appService.showBuildDuringDeployPrompt": false,
+    "appService.defaultWebAppToDeploy": "/subscriptions/ddb55a1f-804f-4b5e-bac6-99d8b054abe0/resourceGroups/EASTUSA/providers/Microsoft.Web/sites/airbnbinfo",
+    "appService.deploySubpath": "dist"
+}

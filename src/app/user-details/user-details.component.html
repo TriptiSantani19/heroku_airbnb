@@ -1,0 +1,244 @@
+<div class="main-background form-class">
+    <section class="main-section ">
+        <div class="container form-container">
+            <div class="form-header">
+                <h5 class="title"> Airbnb </h5>
+            </div>
+            <hr>
+            <form [formGroup]="transactionForm" class="login-form">
+                <div class="container form-field">
+                    <div class="row inline-height">
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Security Deposit</mat-label>
+                                <input class="input-full-width" formControlName="security_deposit" matInput
+                                    autocomplete="off" maxlength="15">
+
+                            </mat-form-field>
+                            <!-- <div *ngIf="submitted && airBnbFormData.security_deposit.errors" class="invalid-login">
+                                <div style="color: red; margin-top: -8%"
+                                    *ngIf="airBnbFormData.security_deposit.errors.required">
+                                    Security Deposit Is Required</div>
+
+                            </div> -->
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Extra People</mat-label>
+                                <input class="input-full-width" matInput formControlName="extra_people"
+                                    autocomplete="off">
+
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Host Listing Count</mat-label>
+                                <input class="input-full-width" matInput formControlName="host_listings_count"
+                                    autocomplete="off">
+
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+                    <!-- <hr> -->
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Cleaning Fee</mat-label>
+                                <input class="input-full-width" matInput formControlName="cleaning_fee"
+                                    autocomplete="off">
+
+                            </mat-form-field>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>ZipCode</mat-label>
+                                <input class="input-full-width" matInput autocomplete="off" formControlName="zipcode">
+
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Accomodate</mat-label>
+                                <input class="input-full-width" only-digits matInput formControlName="accommodates"
+                                    autocomplete="off">
+
+                            </mat-form-field>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Bathrooms</mat-label>
+                                <input class="input-full-width" only-digits matInput formControlName="bathrooms"
+                                    autocomplete="off">
+
+                            </mat-form-field>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Bedrooms</mat-label>
+                                <input class="input-full-width" matInput autocomplete="off" formControlName="bedrooms"
+                                    only-alphabets>
+
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Beds</mat-label>
+                                <input class="input-full-width" only-digits matInput autocomplete="off"
+                                    formControlName="beds" maxlength="12">
+
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Super Host</mat-label>
+                                <input class="input-full-width" matInput only-alphabets autocomplete="off"
+                                    formControlName="superhost">
+
+                            </mat-form-field>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Select</mat-label>
+                                <mat-select formControlName="userVal" autocomplete="off" name="transfer_currency">
+                                    <mat-option *ngFor="let options of optionsList" [value]="options">
+                                        {{options}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Select RoomType</mat-label>
+                                <mat-select formControlName="room_type" autocomplete="off" name="transfer_currency">
+                                    <mat-option *ngFor="let options of roomTypesArr" [value]="options">
+                                        {{options}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Cancellation Policy</mat-label>
+                                <mat-select formControlName="cancel_policy" autocomplete="off" name="transfer_currency">
+                                    <mat-option *ngFor="let options of policyArr" [value]="options">
+                                        {{options}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>user Item Id</mat-label>
+                                <input class="input-full-width" matInput autocomplete="off" formControlName="item_id">
+
+                            </mat-form-field>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>No Of Listings</mat-label>
+                                <input class="input-full-width" matInput autocomplete="off"
+                                    formControlName="no_listings">
+
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Predict Price</mat-label>
+                                <input class="input-full-width" matInput only-alphabets autocomplete="off"
+                                    formControlName="predict_price">
+
+                            </mat-form-field>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-2">
+                            <button type="submit" class="submit-btn-form mr-2 predict" (click)="predictPrice()">
+                                Submit
+                            </button>
+                        </div>
+
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>User Email</mat-label>
+                                <input class="input-full-width" matInput autocomplete="off" formControlName="email">
+
+                            </mat-form-field>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Location Id</mat-label>
+                                <input class="input-full-width" matInput autocomplete="off"
+                                    formControlName="location_id">
+
+                            </mat-form-field>
+                            <div *ngIf="submitted && airBnbFormData.location_id.errors" class="invalid-login">
+                                <div style="color: red;" *ngIf="airBnbFormData.location_id.errors.required">
+                                    Location Id Is Required</div>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <mat-form-field appearance="outline" class="input-full-width">
+                                <mat-label>Select</mat-label>
+                                <mat-select formControlName="location_val" autocomplete="off" name="transfer_currency">
+                                    <mat-option *ngFor="let options of LocationArr" [value]="options">
+                                        {{options}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <div *ngIf="submitted && airBnbFormData.location_val.errors" class="invalid-login">
+                                <div style="color: red;" *ngIf="airBnbFormData.location_val.errors.required">
+                                    Please Selet Value</div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12">
+                            <textarea style="width: 100%;
+                                height: 200px;">{{test | json}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="backBtn btn-container">
+
+                        <div class="submit-btn">
+                            <button type="submit" class="submit-btn-form mr-2" (click)="submitTransactionDetails()">
+                                Submit
+                            </button>
+                            <button class="submit-btn-form reset" (click)="resetForm()">
+                                Reset
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
