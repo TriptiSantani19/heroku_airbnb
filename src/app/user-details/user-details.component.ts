@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserDetailsService } from '../services/user-details.service';
+import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-user-details',
@@ -60,7 +61,7 @@ export class UserDetailsComponent implements OnInit {
     //   return;
     // }
     let val = this.transactionForm.get('security_deposit').value;
-   let  cleaning_fee = this.transactionForm.get('cleaning_fee').value
+    let  cleaning_fee = this.transactionForm.get('cleaning_fee').value
     // let objParams = {
     //   security_deposit : this.transactionForm.get('security_deposit').value,
     //   cleaning_fee : this.transactionForm.get('cleaning_fee').value,
@@ -75,6 +76,8 @@ export class UserDetailsComponent implements OnInit {
     if (val) {
       this.userservice.getPricePredictor(val).subscribe(data => {
         if (data) {
+          console.log("-----------------------");
+          console.log(data);
           this.transactionForm.get('predict_price').patchValue(data);
         }
       })
